@@ -69,4 +69,9 @@
     <string name="snapshot">Snapshot</string>
     <string name="next_scenario">Next Scenario</string>
 
+    <!-- Agent Screen Strings -->
+    <string name="agent_conversation_placeholder">Conversation will appear here.</string>
+    <string name="agent_ask_placeholder">Ask Alora...</string>
+    <string name="agent_send_message_description">Send Message</string>
+
 </resources>
