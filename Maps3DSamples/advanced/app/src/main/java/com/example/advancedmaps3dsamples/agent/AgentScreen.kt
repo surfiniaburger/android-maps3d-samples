@@ -22,6 +22,7 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -106,6 +107,8 @@ private fun AgentMapView(
     modifier: Modifier = Modifier,
     onMapReady: (GoogleMap3D) -> Unit
 ) {
+    val currentOnMapReady by rememberUpdatedState(onMapReady)
+
     val context = LocalContext.current
     val mapView = remember {
         Map3DView(context, Map3DOptions())
@@ -153,7 +156,7 @@ private fun AgentMapView(
                         // Set the camera using the correct 3D API method
                         googleMap.setCamera(initialCamera)
 
-                        onMapReady(googleMap)
+                        currentOnMapReady(googleMap)
                     }
 
                     override fun onError(error: Exception) {
